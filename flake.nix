@@ -22,11 +22,16 @@
               system.stateVersion = "24.05";
               networking.hostName = "isolate-microvm";
               users.users.root.password = "";
+
+              # declare local user
               users.users.isolate = {
                 isNormalUser = true;
                 extraGroups = [ "wheel" ];
                 initialPassword = "isolate";
               };
+
+              programs.nix-ld.enable = true; # enable dynamic executables
+
               microvm = {
                 volumes = [ {
                   mountPoint = "/var";
