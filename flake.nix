@@ -19,6 +19,7 @@
             microvm.nixosModules.microvm
             {
               nixpkgs.system = system;
+              system.stateVersion = "24.05";
               networking.hostName = "isolate-microvm";
               users.users.root.password = "";
               users.users.isolate = {
